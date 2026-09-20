@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-20T04:47:07.843Z",
+        "reason": "assistant judgment, not user confirmed: horizontal 3px gold rule under navy header bands and a 6px top bar on the boarding-pass world; not left/right side borders"
+      }
+    ]
+  }
+}

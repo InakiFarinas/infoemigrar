@@ -8,6 +8,26 @@ export const DIMENSIONS = [
   { key: "seguridad", label: "Seguridad" },
 ];
 
+export const PRIORITY = ["Nada", "Poca", "Media", "Alta"];
+
+export const PART_LABELS = {
+  visa: "Facilidad de visa",
+  trabajo: "Salarios y empleo",
+  costo: "Costo de vida accesible",
+  seguridad: "Seguridad",
+  idioma: "Idioma",
+  familia: "Amigable con familias",
+};
+export const PART_SHORT = {
+  visa: "visa",
+  trabajo: "trabajo y salarios",
+  costo: "costo de vida",
+  seguridad: "seguridad",
+  idioma: "idioma",
+  familia: "familia",
+};
+export const PART_CODES = { visa: "VIS", trabajo: "TRA", costo: "COS", seguridad: "SEG", idioma: "IDI", familia: "FAM" };
+
 export const LANGUAGES = [
   { code: "es", label: "Español" },
   { code: "en", label: "Inglés" },
@@ -171,6 +191,7 @@ export function scoreCountries(weights, userLangs, origin, { profession = "otros
     const w = { ...weights, idioma: 2, ...(family !== "solo" && { familia: 2 }) };
     const sumW = totalW + (family !== "solo" ? 4 : 2);
     const total = Object.keys(w).reduce((acc, k) => acc + parts[k] * w[k], 0) / sumW;
-    return { ...c, parts, score: Math.round(total * 10) };
+    const estimated = { visa: true, trabajo: !c.demandaVerificada, familia: true };
+    return { ...c, parts, estimated, score: Math.round(total * 10) };
   }).sort((a, b) => b.score - a.score);
 }

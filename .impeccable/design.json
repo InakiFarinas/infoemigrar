@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-20T00:00:00Z",
+  "title": "Design System: MigraScore",
+  "extensions": {
+    "colorMeta": {
+      "navy": { "role": "primary", "displayName": "Navy de destino", "canonical": "#0A1F44", "tonalRamp": ["#040c1b", "#071530", "#0A1F44", "#2a3c62", "#4d5c7d", "#7a859f", "#aab1c1", "#d5d8e0"] },
+      "blue": { "role": "primary", "displayName": "Azul de accion", "canonical": "#0F5B85", "tonalRamp": ["#05222f", "#083a56", "#0F5B85", "#337a9f", "#5d98b6", "#8bb6ca", "#b9d3df", "#e0ecf2"] },
+      "gold": { "role": "secondary", "displayName": "Filete dorado", "canonical": "#D4AF37", "tonalRamp": ["#4a3a08", "#7d6410", "#a98a1f", "#D4AF37", "#e0c463", "#ead68f", "#f3e6b8", "#faf3dc"] },
+      "gold-text": { "role": "secondary", "displayName": "Dorado de tinta", "canonical": "#8B6914", "tonalRamp": ["#2b2005", "#4a3809", "#6b510f", "#8B6914", "#a98a3d", "#c4ac6f", "#dccca2", "#efe6cf"] },
+      "warm-ground": { "role": "neutral", "displayName": "Fondo calido", "canonical": "#F5F0E8", "tonalRamp": ["#3a382f", "#5d5a4e", "#8a8678", "#b5b0a2", "#d3cec2", "#e6e1d6", "#F5F0E8", "#faf8f3"] },
+      "ink-2": { "role": "neutral", "displayName": "Tinta 2", "canonical": "#333333", "tonalRamp": ["#0d0d0d", "#1a1a1a", "#333333", "#4d4d4d", "#808080", "#b3b3b3", "#d9d9d9", "#f0f0f0"] },
+      "ink-3": { "role": "neutral", "displayName": "Tinta 3", "canonical": "#555555", "tonalRamp": ["#1a1a1a", "#333333", "#555555", "#777777", "#999999", "#bbbbbb", "#dddddd", "#f2f2f2"] },
+      "thermal-main": { "role": "neutral", "displayName": "Papel termico", "canonical": "#FDF8EC", "tonalRamp": ["#5a5340", "#8a8266", "#b8ae8c", "#d8cfae", "#ece3c6", "#F3EFE4", "#FDF8EC", "#fffdf7"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "H1 y nombre del primer pais, Georgia." },
+      "score-hero": { "displayName": "Puntaje", "purpose": "Puntaje del pasaje en Georgia con cifras tabulares." },
+      "label": { "displayName": "Campo de datos", "purpose": "Courier New en mayusculas pequenas para campos y codigos." }
+    },
+    "shadows": [
+      { "name": "brand-sm", "value": "0 1px 4px 0 rgba(10,31,68,0.08)", "purpose": "Pasajes en la pila." },
+      { "name": "brand", "value": "0 4px 16px 0 rgba(10,31,68,0.12)", "purpose": "Ticket del pasajero." },
+      { "name": "brand-lg", "value": "0 8px 32px 0 rgba(10,31,68,0.16)", "purpose": "Definida en @theme; sin uso observado." },
+      { "name": "gold-filete", "value": "inset 0 -3px 0 #D4AF37", "purpose": "Filete decorativo bajo bandas navy." }
+    ],
+    "motion": [
+      { "name": "print", "value": "0.7s cubic-bezier(0.16, 1, 0.3, 1), delay 80ms por puesto", "purpose": "Aparicion del pasaje por clip-path; se apaga con prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Accion principal, por ejemplo abrir el pasaje completo.",
+      "html": "<button class=\"ds-btn\">Ver pasaje completo</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0.5rem 1.1rem; border: 0; border-radius: 6px; background: var(--color-brand-blue, #0F5B85); color: #fff; font: 600 0.875rem Arial, Helvetica, sans-serif; cursor: pointer; } .ds-btn:hover { background: var(--color-brand-navy, #0A1F44); } .ds-btn:focus-visible { outline: 3px solid #0F5B85; outline-offset: 2px; }"
+    },
+    {
+      "name": "Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Opcion conmutable, por ejemplo idiomas.",
+      "html": "<button class=\"ds-chip\" aria-pressed=\"false\">Espanol</button> <button class=\"ds-chip\" aria-pressed=\"true\">Ingles</button>",
+      "css": ".ds-chip { min-height: 44px; padding: 0.5rem 1rem; border: 1px solid #0F5B85; border-radius: 6px; background: #fff; color: #0F5B85; font: 0.875rem Arial, sans-serif; cursor: pointer; } .ds-chip[aria-pressed=\"true\"] { background: #0F5B85; color: #fff; font-weight: 600; } .ds-chip:hover:not([aria-pressed=\"true\"]) { background: #F2F2F2; } .ds-chip:focus-visible { outline: 3px solid #0F5B85; outline-offset: 2px; }"
+    },
+    {
+      "name": "Select Field",
+      "kind": "input",
+      "refersTo": "field-select",
+      "description": "Campo de datos con etiqueta Courier en mayusculas.",
+      "html": "<label class=\"ds-label\">Nacionalidad</label><select class=\"ds-select\"><option>Argentina</option></select>",
+      "css": ".ds-label { display: block; margin-bottom: 0.35rem; font: 600 0.75rem 'Courier New', monospace; letter-spacing: 0.08em; text-transform: uppercase; color: #555; } .ds-select { width: 100%; min-height: 44px; padding: 0.5rem 0.75rem; border: 1px solid rgb(10 31 68 / 0.35); border-radius: 6px; background: #fff; color: #0A1F44; font: 1rem Arial, sans-serif; } .ds-select:hover { border-color: #0A1F44; } .ds-select:focus-visible { outline: 3px solid #0F5B85; outline-offset: 2px; }"
+    },
+    {
+      "name": "Segmented Control",
+      "kind": "custom",
+      "refersTo": "seg-item-checked",
+      "description": "Seleccion de una entre cuatro opciones.",
+      "html": "<div class=\"ds-seg\"><span>Solo</span><span class=\"on\">Pareja</span><span>Hijos</span><span>Familia</span></div>",
+      "css": ".ds-seg { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; padding: 3px; border: 1px solid rgb(10 31 68 / 0.35); border-radius: 6px; } .ds-seg span { display: flex; align-items: center; justify-content: center; min-height: 40px; border-radius: 3px; font: 0.875rem Arial, sans-serif; color: #0A1F44; } .ds-seg span:hover { background: #F2F2F2; } .ds-seg .on { background: #0F5B85; color: #fff; font-weight: 600; }"
+    },
+    {
+      "name": "Boarding Pass",
+      "kind": "card",
+      "refersTo": "pass-band",
+      "description": "Pasaje: banda navy con filete dorado, cuerpo termico y talon con codigo de barras.",
+      "html": "<article class=\"ds-pass\"><div class=\"ds-band\"><h3>Espana</h3><p class=\"ds-route\">N.º 1 · AR → ES</p></div><div class=\"ds-main\"><p>Resumen del destino.</p><dl><dt>Suma</dt><dd>Visa · 9</dd></dl></div><div class=\"ds-stub\"><p class=\"ds-score\">82<span>/100</span></p><div class=\"ds-bars\"><i class=\"src\" style=\"height:90%;width:16px\"></i><i class=\"est\" style=\"height:60%;width:9px\"></i><i class=\"src\" style=\"height:75%;width:18px\"></i></div></div></article>",
+      "css": ".ds-pass { display: grid; grid-template-columns: 1fr 230px; grid-template-areas: 'band band' 'main stub'; overflow: hidden; border-radius: 6px; background: #fff; box-shadow: 0 1px 4px 0 rgba(10,31,68,0.08); font-family: Arial, sans-serif; } .ds-band { grid-area: band; padding: 1rem 1.25rem; background: #0A1F44; color: #fff; box-shadow: inset 0 -3px 0 #D4AF37; display: flex; justify-content: space-between; align-items: center; } .ds-band h3 { margin: 0; font: 700 1.5rem Georgia, serif; } .ds-route { margin: 0; font: 700 0.875rem 'Courier New', monospace; letter-spacing: 0.14em; } .ds-main { grid-area: main; padding: 1.5rem; background: repeating-linear-gradient(0deg, transparent 0 3px, rgb(139 105 20 / 0.07) 3px 4px), #fdf8ec; color: #333; } .ds-main dt { font: 600 0.75rem 'Courier New', monospace; letter-spacing: 0.08em; text-transform: uppercase; color: #555; } .ds-main dd { margin: 0; font: 0.875rem 'Courier New', monospace; color: #0A1F44; } .ds-stub { grid-area: stub; padding: 1.25rem; border-left: 2px dashed rgb(10 31 68 / 0.4); background: #f3efe4; } .ds-score { margin: 0 0 0.5rem; font: 700 2.75rem/1 Georgia, serif; color: #0A1F44; } .ds-score span { font: 0.875rem Arial, sans-serif; color: #555; margin-left: 0.15rem; } .ds-bars { display: flex; align-items: flex-end; gap: 4px; height: 56px; } .ds-bars i { display: block; border-radius: 1px; } .ds-bars .src { background: #0F5B85; } .ds-bars .est { border: 1.5px solid #0F5B85; background: repeating-linear-gradient(135deg, #0F5B85 0 2px, transparent 2px 5px); }"
+    },
+    {
+      "name": "Delta",
+      "kind": "chip",
+      "refersTo": "delta",
+      "description": "Cambio de puesto en la banda navy.",
+      "html": "<span class=\"ds-delta\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 10 10\" aria-hidden=\"true\"><path d=\"M5 1 9 8H1z\" fill=\"currentColor\"/></svg>2</span>",
+      "css": ".ds-delta { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.15rem 0.5rem; border-radius: 999px; background: #fff; color: #0A1F44; font: 700 0.75rem Arial, sans-serif; font-variant-numeric: tabular-nums; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "El pasaje de embarque",
+    "overview": "Cada pais es un pasaje: papel termico blanco sobre un fondo calido, banda navy con el destino, perforado con muescas, y un talon desprendible cuyo codigo de barras es el desglose real del puntaje. El perfil del usuario es el talon \"Datos del pasajero\" (ticket) en la columna izquierda. La voz es de herramienta operativa: densa pero legible, en voseo, sin decoracion que no cargue informacion.\n\nEl sistema muestra de donde sale cada numero. Barras solidas son datos con fuente; barras con trama diagonal son estimaciones editoriales. Georgia lleva destinos y puntajes, Arial la lectura, Courier New solo los codigos de ruta y campos de datos. Azul de marca para la accion, dorado solo como filete decorativo.\n\nHonestidad sobre lo construido: la textura de papel termico es muy tenue (lineas horizontales de 1px al 7% de opacidad sobre #FDF8EC) y apenas se percibe; el pasaje abierto (vista de detalle) elimina el talon y su codigo de barras, y el perforado pierde sus muescas.",
+    "keyCharacteristics": [
+      "Pasaje en tres zonas: banda navy con filete dorado, cuerpo termico, talon con barras.",
+      "Campos de datos en Courier New, mayusculas pequenas, tracking 0.08em.",
+      "Trama diagonal = estimado; sin trama = con fuente.",
+      "Objetivos tactiles de 44px minimo.",
+      "Sombras suaves teñidas de navy; sin bordes duros ni sombras desplazadas."
+    ],
+    "rules": [
+      { "name": "The Gold Filete Rule", "body": "El dorado aparece solo como filete de 3px bajo una banda navy. Nunca como texto, relleno ni boton.", "section": "colors" },
+      { "name": "The Hatch Means Estimate Rule", "body": "La trama diagonal a 135 grados significa estimacion editorial y nada mas.", "section": "colors" },
+      { "name": "The Mono Is Data Rule", "body": "Courier New solo para codigos de ruta, codigos de dimension y campos de datos; nunca para prosa.", "section": "typography" },
+      { "name": "The Tabular Score Rule", "body": "Puntajes y deltas usan cifras tabulares.", "section": "typography" },
+      { "name": "The Soft Paper Rule", "body": "Sombras solo difusas y teñidas de navy; ninguna sombra dura desplazada.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do usar azul (#0F5B85) para toda accion y navy (#0A1F44) para banda y hover.",
+      "Do marcar toda estimacion editorial con bar-est y todo dato con fuente con bar-src.",
+      "Do mantener objetivos de 44px y foco visible de 3px.",
+      "Do dar a cada dimension un codigo de tres letras en Courier bajo su barra."
+    ],
+    "donts": [
+      "Don't usar dorado fuera del filete decorativo de 3px.",
+      "Don't usar Courier New para prosa.",
+      "Don't usar sombras duras desplazadas ni radios distintos de la escala existente.",
+      "Don't usar tinta mas clara que ink-3 (#555555) para texto legible."
+    ]
+  }
+}
