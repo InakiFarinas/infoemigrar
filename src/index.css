@@ -1,91 +1,49 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --color-brand-navy: #0A1F44;
+  --color-brand-blue: #0F5B85;
+  --color-brand-gold: #D4AF37;
+  --color-brand-gold-text: #8B6914;
+  --color-brand-warm: #F5F0E8;
+  --color-brand-neutral: #F2F2F2;
 
-@layer base {
-	:root {
-		/* Tipografía */
-		--font-sans: "DM Sans", sans-serif;
+  --font-brand: Georgia, "Times New Roman", serif;
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-mono: "Courier New", monospace;
 
-		/* Colores — modo claro */
-		--bg: #f7f7f5; /* fondo de página */
-		--surface: #ffffff; /* tarjetas */
-		--surface-2: #f4f4f5; /* superficies secundarias */
-		--border: #e4e4e7; /* bordes default */
-		--border-2: #d4d4d8; /* bordes hover */
-		--text-1: #18181b; /* texto primario */
-		--text-2: #52525b; /* texto secundario */
-		--text-3: #a1a1aa; /* texto terciario / placeholders */
+  --text-display: 2.25rem;
+  --text-display--line-height: 1.15;
+  --text-display--font-weight: 700;
 
-		/* Acento — índigo apagado */
-		--accent: #6366f1;
-		--accent-bg: #eef2ff;
-		--accent-text: #4338ca;
-	}
+  --text-heading: 1.5rem;
+  --text-heading--line-height: 1.3;
+  --text-heading--font-weight: 700;
 
-	.dark {
-		--bg: #0f0f0f;
-		--surface: #161616;
-		--surface-2: #1c1c1e;
-		--border: #27272a;
-		--border-2: #3f3f46;
-		--text-1: #fafaf9;
-		--text-2: #a1a1aa;
-		--text-3: #52525b;
-		--accent: #818cf8;
-		--accent-bg: #1e1b4b;
-		--accent-text: #a5b4fc;
-	}
+  --text-subhead: 1.125rem;
+  --text-subhead--line-height: 1.4;
+  --text-subhead--font-weight: 600;
 
-	* {
-		font-family: var(--font-sans);
-		-webkit-font-smoothing: antialiased;
-	}
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+  --text-body--font-weight: 400;
 
-	body {
-		background: var(--bg);
-		color: var(--text-1);
-		transition:
-			background 0.2s,
-			color 0.2s;
-	}
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
+  --text-small--font-weight: 400;
 
-	.overview-stats-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-		gap: 8px;
-		margin-bottom: 8px;
-	}
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.4;
+  --text-label--font-weight: 500;
 
-	.overview-panel {
-		background: var(--surface);
-		border: 0.5px solid var(--border);
-		border-radius: 12px;
-		padding: 8px 12px;
-	}
+  --radius-brand: 6px;
 
-	.overview-panel-title {
-		font-size: 14px;
-		font-weight: 600;
-		color: var(--text-1);
-		margin-bottom: 8px;
-	}
+  --shadow-brand-sm: 0 1px 4px 0 rgba(10,31,68,0.08);
+  --shadow-brand: 0 4px 16px 0 rgba(10,31,68,0.12);
+  --shadow-brand-lg: 0 8px 32px 0 rgba(10,31,68,0.16);
 
-	.overview-info-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 12px;
-	}
-
-	.overview-metric-label {
-		font-size: 12px;
-		color: var(--text-3);
-		margin-bottom: 4px;
-	}
-
-	.overview-metric-value {
-		font-size: 18px;
-		font-weight: 600;
-		color: var(--text-1);
-	}
+  --spacing-section: 4rem;
+  --spacing-block: 2rem;
+  --spacing-inset: 1.5rem;
 }
+
