@@ -21,7 +21,10 @@ npm run dev
 
 ## Estado de los datos
 
-Los puntajes, la demanda por profesión y los grupos de acceso preferencial a visas son **preliminares**: deben curarse con fuentes reales (World Bank, Numbeo, Global Peace Index, sitios oficiales de migración) antes de publicar. Los resultados son orientativos y no constituyen asesoría legal.
+- **Con fuente:** seguridad (Global Peace Index 2026), costo de vida y poder adquisitivo (Numbeo, mitad de 2026). Se guardan como `indicadores` en `src/data/countries.js` y los puntajes se derivan con fórmulas allí documentadas.
+- **Estimaciones editoriales (pendientes de validar):** facilidad de visa por país y grupo de origen, demanda por profesión y puntaje de familia.
+
+Los resultados son orientativos y no constituyen asesoría legal.
 
 ## Marca
 

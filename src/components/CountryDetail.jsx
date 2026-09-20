@@ -37,6 +37,13 @@ export default function CountryDetail({ country, family, onBack }) {
         ))}
       </div>
 
+      <h3 className="mb-2 mt-6 text-subhead font-brand">Datos de referencia</h3>
+      <ul className="list-disc pl-5 text-small text-[#333]">
+        <li>Global Peace Index 2026: {country.indicadores.gpi} (menor = más pacífico)</li>
+        <li>Índice de costo de vida (Numbeo): {country.indicadores.costoVida}</li>
+        <li>Poder adquisitivo local (Numbeo): {country.indicadores.poderCompra}</li>
+      </ul>
+
       <h3 className="mb-2 mt-6 text-subhead font-brand">Vías migratorias principales</h3>
       <ul className="list-disc pl-5 text-small text-[#333]">
         {country.vias.map((v) => <li key={v}>{v}</li>)}

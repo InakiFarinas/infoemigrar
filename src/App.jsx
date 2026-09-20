@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import Flag from "./components/Flag";
 import CountryDetail from "./components/CountryDetail";
-import { DIMENSIONS, LANGUAGES, ORIGINS, PROFESSIONS, FAMILY, scoreCountries } from "./data/countries";
+import { DIMENSIONS, LANGUAGES, DATA_SOURCES, ORIGINS, PROFESSIONS, FAMILY, scoreCountries } from "./data/countries";
 
 const PRIORITY = ["Sin importancia", "Poca", "Media", "Alta"];
 
@@ -126,6 +126,11 @@ export default function App() {
             ))}
             <p className="text-label text-[#555]">
               Puntajes orientativos, no constituyen asesoría legal. Verificá siempre los requisitos en la fuente oficial.
+            </p>
+            <p className="text-label text-[#555]">
+              Seguridad, costo de vida y salarios se calculan con: {DATA_SOURCES.map((d, i) => (
+                <span key={d.url}>{i > 0 && "; "}<a href={d.url} target="_blank" rel="noreferrer" className="underline">{d.label}</a></span>
+              ))}. Visa, demanda por profesión y familia son estimaciones editoriales.
             </p>
           </section>
         )}
