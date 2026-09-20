@@ -38,6 +38,13 @@ export default function CountryDetail({ country, family, onBack }) {
         ))}
       </div>
 
+      <p className="mt-4 text-label text-[#555]">
+        {country.demandaVerificada
+          ? "Demanda por profesión: basada en listas de ocupaciones y sorteos de 2026."
+          : "Demanda por profesión: estimación sin verificar."}
+        {family !== "solo" && " Puntaje de familia: estimación editorial."}
+      </p>
+
       <h3 className="mb-2 mt-6 text-subhead font-brand">Datos de referencia</h3>
       <ul className="list-disc pl-5 text-small text-[#333]">
         <li>Global Peace Index 2026: {country.indicadores.gpi} (menor = más pacífico)</li>
