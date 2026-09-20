@@ -1,6 +1,6 @@
 // Puntajes 0-10 (más alto = mejor para el migrante).
 // seguridad, costo y trabajo se derivan de indicadores con fuente (ver DATA_SOURCES).
-// visa, demanda por profesión y familia son estimaciones editoriales pendientes de validar.
+// demanda por profesión y familia son estimaciones editoriales. Las vías y los grupos de acceso a visas se revisaron en septiembre de 2026; el puntaje de visa sigue siendo criterio editorial.
 export const DIMENSIONS = [
   { key: "visa", label: "Facilidad de visa" },
   { key: "trabajo", label: "Salarios y empleo" },
@@ -45,6 +45,8 @@ export const ORIGINS = [
   { code: "ve", label: "Venezuela", groups: ["ibero"] },
 ];
 
+export const REVISION_VISAS = "septiembre de 2026";
+
 // Fuentes de los indicadores (consultadas en septiembre de 2026)
 export const DATA_SOURCES = [
   { label: "Global Peace Index 2026 (menor = más pacífico)", url: "https://www.visionofhumanity.org/maps/" },
@@ -69,7 +71,7 @@ const RAW_COUNTRIES = [
     familia: 8,
     visaByGroup: { ibero: 8 },
     scores: { visa: 7 },
-    vias: ["Arraigo (social, laboral, familiar)", "Nómada digital", "Nacionalidad por residencia (2 años para latinoamericanos)"],
+    vias: ["Visa de trabajo por cuenta ajena (requiere oferta de empleo)", "Visa de nómada digital", "Arraigo: solo tras 2 años de permanencia en España, no sirve para entrar", "Nacionalidad por residencia en 2 años para iberoamericanos"],
     fuente: "https://www.inclusion.gob.es/web/migraciones",
   },
   {
@@ -78,9 +80,9 @@ const RAW_COUNTRIES = [
     resumen: "Seguridad y calidad de vida altas, con salarios moderados; atractivo para brasileños y para quienes trabajan en remoto.",
     demanda: { tech: 6, salud: 6, ingenieria: 5, oficios: 5, remoto: 9, otros: 3 },
     familia: 8,
-    visaByGroup: { cplp: 9 },
-    scores: { visa: 6 },
-    vias: ["Visado de búsqueda de empleo", "Visado D7 (ingresos pasivos)", "Nómada digital"],
+    visaByGroup: { cplp: 7 },
+    scores: { visa: 5 },
+    vias: ["Visado D7 (ingresos pasivos)", "Visado D8 (nómada digital)", "Visado de trabajo con contrato", "Visado de búsqueda de empleo cualificado: reformado en oct. 2025, aún sin reglamentar", "Ciudadanía tras 10 años (7 para CPLP)"],
     fuente: "https://aima.gov.pt",
   },
   {
@@ -90,8 +92,8 @@ const RAW_COUNTRIES = [
     demanda: { tech: 5, salud: 6, ingenieria: 6, oficios: 6, remoto: 6, otros: 4 },
     familia: 6,
     visaByGroup: { mercosur: 8 },
-    scores: { visa: 7 },
-    vias: ["Visa de residencia temporal por oferta de trabajo", "Visa por vínculo familiar"],
+    scores: { visa: 6 },
+    vias: ["Residencia temporal por oferta o contrato de trabajo (trámite de 6-8 meses)", "Residencia temporal Mercosur, sin contrato de trabajo previo", "Residencia por vínculo familiar"],
     fuente: "https://serviciomigraciones.cl",
   },
   {
@@ -102,7 +104,7 @@ const RAW_COUNTRIES = [
     familia: 7,
     visaByGroup: { mercosur: 9 },
     scores: { visa: 4 },
-    vias: ["Residencia Mercosur (ciudadanos de países miembros y asociados)", "Residencia por trabajo"],
+    vias: ["Residencia Mercosur temporaria (2 años) y luego permanente, para nacionales de países miembros y asociados", "Residencia legal por trabajo o inversión para otras nacionalidades"],
     fuente: "https://www.gub.uy/ministerio-relaciones-exteriores/",
   },
   {
@@ -112,7 +114,7 @@ const RAW_COUNTRIES = [
     demanda: { tech: 5, salud: 5, ingenieria: 5, oficios: 6, remoto: 8, otros: 4 },
     familia: 6,
     scores: { visa: 7 },
-    vias: ["Residencia temporal por ingresos o vínculo", "Residencia por oferta de empleo"],
+    vias: ["Residente temporal por solvencia económica (ingresos mensuales de unos 300-400 días de UMA; las fuentes discrepan)", "Residente temporal por oferta de empleo (la empresa debe estar inscripta ante el INM)", "Residencia por vínculo familiar"],
     fuente: "https://www.gob.mx/sre",
   },
   {
@@ -122,7 +124,7 @@ const RAW_COUNTRIES = [
     demanda: { tech: 9, salud: 9, ingenieria: 8, oficios: 8, remoto: 5, otros: 5 },
     familia: 8,
     scores: { visa: 4 },
-    vias: ["Express Entry (puntaje)", "Nominación provincial (PNP)", "Permiso de estudio y trabajo"],
+    vias: ["Express Entry: en 2026 los cortes generales rondan 520-540 puntos (CRS); hay sorteos por categoría con cortes menores", "Nominación provincial (PNP)", "Permiso de estudio y trabajo"],
     fuente: "https://www.canada.ca/es/inmigracion-refugiados-ciudadania.html",
   },
   {
@@ -132,7 +134,7 @@ const RAW_COUNTRIES = [
     demanda: { tech: 9, salud: 9, ingenieria: 9, oficios: 8, remoto: 6, otros: 5 },
     familia: 8,
     scores: { visa: 5 },
-    vias: ["Tarjeta Azul UE (profesionales)", "Oportunidad Card (búsqueda de empleo por puntos)", "Visa de trabajo calificado"],
+    vias: ["Tarjeta Azul UE (salario mínimo de 50.700 € anuales en 2026; 45.934 € en profesiones con escasez)", "Chancenkarte / Opportunity Card (búsqueda de empleo por puntos; exige alemán A1 o inglés B2 y fondos de unos 1.091 € por mes)", "Visa de trabajo calificado con título reconocido"],
     fuente: "https://www.make-it-in-germany.com/es/",
   },
   {
@@ -142,7 +144,7 @@ const RAW_COUNTRIES = [
     demanda: { tech: 9, salud: 9, ingenieria: 9, oficios: 9, remoto: 4, otros: 6 },
     familia: 7,
     scores: { visa: 3 },
-    vias: ["Skilled Independent (subclase 189)", "Working Holiday (según nacionalidad)", "Skilled Employer Sponsored"],
+    vias: ["Skilled Independent (subclase 189): invitaciones por puntaje, con mayoría de salud entre las últimas", "Skilled Employer Sponsored", "Working Holiday (por ejemplo Uruguay, con 1.500 cupos anuales; otros países según acuerdo)"],
     fuente: "https://immi.homeaffairs.gov.au",
   },
 ];

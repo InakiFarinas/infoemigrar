@@ -8,6 +8,7 @@ const LABELS = {
 };
 
 import Flag from "./Flag";
+import { REVISION_VISAS } from "../data/countries";
 
 export default function CountryDetail({ country, family, onBack }) {
   const keys = Object.keys(LABELS).filter((k) => k !== "familia" || family !== "solo");
@@ -45,6 +46,7 @@ export default function CountryDetail({ country, family, onBack }) {
       </ul>
 
       <h3 className="mb-2 mt-6 text-subhead font-brand">Vías migratorias principales</h3>
+      <p className="mb-2 text-label text-[#555]">Revisadas en {REVISION_VISAS}.</p>
       <ul className="list-disc pl-5 text-small text-[#333]">
         {country.vias.map((v) => <li key={v}>{v}</li>)}
       </ul>
